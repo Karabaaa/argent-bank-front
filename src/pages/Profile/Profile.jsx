@@ -2,14 +2,17 @@ import "./Profile.css";
 import AccountCard from "../../components/AccountCard/AccountCard";
 
 export default function Profile() {
-  const user = JSON.parse(localStorage.getItem("user"));
+  const user = JSON.parse(localStorage.getItem("user") || "{}");
+  const firstName = user.firstName ?? "Tony";
+  const lastName = user.lastName ?? "Stark";
+
   return (
     <main className="main bg-dark">
       <div className="header">
         <h1>
           Welcome back
           <br />
-          {user.firstName} {user.lastName}!
+          {firstName} {lastName}
         </h1>
         <button className="edit-button">Edit Name</button>
       </div>
